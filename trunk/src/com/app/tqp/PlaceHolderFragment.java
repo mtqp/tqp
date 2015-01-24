@@ -6,6 +6,8 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 import android.widget.TextView;
 
 /**
@@ -36,11 +38,30 @@ public class PlaceHolderFragment extends Fragment {
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 		View rootView = inflater.inflate(R.layout.fragment_options, container, false);
 		
-		TextView textView = (TextView) rootView.findViewById(R.id.section_label);
+		ListView songsList = (ListView) rootView.findViewById(R.id.songsListView);
 		
-		textView.setText(Integer.toString(getArguments().getInt(ARG_SECTION_NUMBER))
-						+ " Motherfucker!");
-		return rootView;
+        // Defined Array values to show in ListView
+        String[] values = new String[] { "Tema sin nombre", 
+                                         "Carrusel",
+                                         "Sin Mirar",
+                                         "Volviendo al final", 
+                                        };
+
+        // Define a new Adapter
+        // First parameter - Context
+        // Second parameter - Layout for the row
+        // Third parameter - ID of the TextView to which the data is written
+        // Forth - the Array of data
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(), 
+        		android.R.layout.simple_list_item_1, android.R.id.text1, values);
+
+
+        // Assign adapter to ListView
+        songsList.setAdapter(adapter); 
+		
+		//textView.setText(Integer.toString(getArguments().getInt(ARG_SECTION_NUMBER)) + " Motherfucker!");
+		
+        return rootView;
 	}
 
 	@Override
