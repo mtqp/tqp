@@ -54,6 +54,7 @@ public class PlaceHolderFragment extends Fragment {
 		/* MDS:
 		 * This is a piece of crap! it should be refactored completely
 		 * using MVC and testing!
+		 * No funcionan las sharedpreferences, no guardan dsp q cerras la app!!!
 		 */
 		
 		final SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences(getActivity());
