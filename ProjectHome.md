@@ -1,0 +1,1 @@
+App for TQP, to log songs, lyrics, tabs, todo's, gear configuration, etc.
